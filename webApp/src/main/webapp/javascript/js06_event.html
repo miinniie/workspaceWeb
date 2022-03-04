@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var cnt=0, cnt2=0;
+	//onclick
+	
+	//onmouseover, onmouseout
+	//onmouseenter, onmouseleave >> 한번만 발생함
+	
+	//onmousedown, onmouseup
+	//onmousemove
+	//onsubmit, onreset
+	
+	//onkeydown : 키를 입력했을때
+	//onkeyup : 키를 놓으면
+	//onkeypress : 키를 누른상태
+	//onkeyrelease: 키를 놓으면
+	
+	//onload
+	//onresize
+	//onscroll
+	
+	//onchange
+	
+	function eventTest(){
+		document.getElementById("show").innerHTML = ++cnt + "번째 이벤트 발생";
+	}
+	function eventTest2(){
+		document.getElementById("show2").innerHTML = ++cnt2 + "번째 이벤트 발생";
+	}
+	
+	//onfocus, onblur
+	function focusTest(){
+		document.getElementById("userId").style.background="yellow"
+	}
+	function blurTest(){
+		document.getElementById("userId").style.background="pink"
+	}
+	
+	
+	function frmChk(){
+		//return false -> action의 파일로 이동하지 않음
+		//return true -> action으로 이동
+		//아아디, 비밀번호 확인하기
+		if(document.getElementById("userId").value==""){
+			alert("아이디를 입력하세요..")
+			return false;
+		}
+		if(document.getElementById("userpwd").value==""){
+			alert("비밀번호를 입력하세요..")
+			return false;
+		}
+		return true;	
+	}
+	function numChk(){
+		//숫자만 입력되도록 설정
+		console.log(event.keyCode); // 아스키 코드
+		if(event.keyCode<48 || event.keyCode>57){ //숫자아ㅣㄴㄹ떄
+			event.returnValue = false;
+		}else{ //숫자일때
+			event.returnValue = true;
+		}
+	}
+	
+</script>
+</head>
+<body>
+<div id="show"></div>
+<div id="show2"></div>
+<form method="post" action="login.jsp" onsubmit="return frmChk()">
+	<input type="text" name="userId" id="userId" onfocus="focusTest()" onblur="blurTest()"/><br/>
+	<input type="password" name="userpwd" id="userpwd"/>
+	<input type="submit" value="로그인"/>
+	<input type="text" id="keytext" onkeydown="numChk()"/>
+</form>
+<div id="e1" onmouseenter="eventTest()" onmouseleave = "eventTest2()"  style="background-color:lightblue; padding:100px">
+	<div id="e2" style="background-color:orange; padding:50px">
+		<h1 style="background-color:yellow">이벤트 테스트</h1>
+	</div>
+</div>
+</body>
+</html>

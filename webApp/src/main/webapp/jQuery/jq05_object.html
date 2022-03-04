@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	img{width:200px; height: 200px;}
+	ul, li{margin:0; padding:0; list-style-type:none}
+	li{float:left; border: 1px solid gray; padding: 5px; margin: 5px;}
+</style>
+<script>
+	$(function(){
+		//before(), insertBefore(): 선택자 이전에 객체 추가
+		$("#i").before("<li><img src='../img/02.jpg'/></li>");
+		$("<li><img src='../img/03.jpg'/></li>").insertBefore("#i");
+		
+		//after(), insertAfter();
+		$("#i").after("<li><img src='../img/04.jpg'/></li>");
+		$("<li><img src='../img/05.jpg'/></li>").insertAfter("#i");
+		
+		//append(), appendTo();
+		$("ul").append("<li><img src='../img/01.jpg'/></li>");
+		$("<li><img src='../img/02.jpg'/></li>").appendTo("ul");
+		//prepend(), prependTo();
+		
+		//clone(): 선택지를 복사한다. 단 하번만 사용할 수 있다.
+		var copy = $("#i").clone(); //id="i"를 copy로 변경한다
+		copy.attr('id','copy'); 
+		
+		$("ul").prepend(copy);
+		
+		//empty(): 선택자의 내용 지우기
+		$("#copy").empty();
+		
+		//remove(): 선택자와 내용지우기
+		$("#i").remove();
+		
+		
+	});
+	
+</script>
+</head>
+<body>
+<ul>
+	<li id="i"><img src="../img/01.jpg"/></li>
+</ul>
+</body>
+</html>

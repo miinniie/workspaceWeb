@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	img{width:200px; height:200px;}
+</style>
+<script>
+	$(()=>{
+		var imgTag = "<img src='../img/02.jpg'/>";
+		
+		$("img:first").click(function(){
+			$("body").append(imgTag);
+		});
+		
+		//일정한 시간에 한번씩 실행
+		setInterval(function(){
+			$("img").first().trigger('click'); //이벤트 발생시킨다.
+		},1000);
+	});
+</script>
+
+</head>
+<body>
+<img src="../img/01.jpg"/>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>\
+<script>
+	//배열형 변수 생성
+	var arr = new Array();
+	arr[3] = 100;
+	arr[5] = "홍길동";
+	arr[10] = 23.65;
+	for(var i=0; i<arr.length; i++){
+		document.write("arr["+i+"]="+arr[i]+"<br/>")
+	}
+	
+	//초기값이 있는 배열 선언하기
+	var arr2 = new Array(1234, "세종대왕", 52.21);
+	var arr3 = [542, "이순신", 54.54]
+	document.write("arr2->"+ arr2)
+	document.write("<br/>arr3->"+arr3);
+	
+	//배열에 데이터 추가
+	arr2.push(554);
+	document.write("<br/>push->"+arr2)
+	
+	//배열의 마지막 데이터를 제거하는것
+	arr2.pop();
+	document.write("<br/>pop->"+arr2)
+	
+	//배열의 이동
+	//shift: right에서 left으로 이동
+	//unshift: left에서 오른쪽으로 이동
+	
+	arr2.shift();
+	arr3.unshift("영등포구");
+	
+	document.write("<br/>shift->"+arr2)
+	document.write("<br/>unshift->"+arr3)
+	
+	//배열을 문자열과 join하기
+	var joinData = arr3.join("/");
+	document.write("<br/>joinData->"+joinData);
+	
+	//JSON(JavaSript Object Notation)을 이용한 데이터 관리
+	var jsonData = {
+		username: '홍길동',
+		addr: '서울시 마포구',
+		num: 102,
+		email: {email1: 'aaa@nate.com', email2: 'bbb@daum.net'}
+		}
+	document.write("<br/>"+jsonData.username);
+	document.write("<br/>"+jsonData.email.email2);
+</script>
+</head>
+<body>
+
+</body>
+</html>

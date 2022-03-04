@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	/*
+	$(document).ready(function(){
+	});
+	
+	$(()=>{
+		
+	});
+	
+	*/
+	
+	$(function(){
+		//인접선택자
+		//모든 선택자: *, 태그 선택자, 아이디 선택자, 클래스 선택자, 자손선택자(>), 후손선택자(a b)
+		//children():자손을 선택한다
+		$("div").children(' .one').css('color','red');
+		//next(): 선택자의 다음 객체를 선택
+		$("h1").next().css("background",'lightblue');
+		//prev(): 선택자의 이전 객테를 선택
+		$("h3").prev().css("background","pink");
+		//parent() : 선택자의 부모
+		$("img").parent().css("border","2px solid gray");
+		
+		$("body").css("margin","0px");
+		
+		//sibling(): 선택자의 형제들을 선택
+		$("h3").siblings().css("border", "1px solid green");
+		
+		//위치선택자
+		$("#menu>li:first").css("background-color","pink");
+		$("#menu>li:last").css("background-color","blue");
+		$("#menu>li:even").css("color","green");
+		$("#menu>li:odd").css("color","red");
+		
+		$("#menu>li:nth-last-of-type(3)").css("background","yellow"); //뒤에서 3번째 객체
+		$("li:only-child").css("font-size","1.5em"); //li의 부모중 자식이 1개인 태그 선택
+		
+		$("#menu>li").slice(4).css("font-family","궁서");
+		$("#menu>li").eq(3).css("font-size","2em"); //indexㅟ체의 객체를 선택
+		
+		//lt: less than, gt: greater than
+		$("#menu>li:lt(4)").css("background-color","#ddd");
+		$("#menu>li:gt(4)").css("background-color","orange");
+	});
+
+	
+	</script>
+</head>
+<body>
+	<div>
+		<h1 id="first">인접선택자</h1>
+		<h1 class="one">children선택자</h1>
+		<h2 class="one">next선택자</h2>
+		<h4>prev선택자</h4>
+		<h4>parent선택자</h4>
+		<h3>sibling선택자</h3>
+		<h2>후손, 자손선택자</h2>
+	</div>
+	
+	<ul id="menu">
+		<li>html</li>
+		<li>css</li>
+		<li>javscript</li>
+		<li>jquery</li>
+		<li>ajax</li>
+		<li>jsp</li>
+		<li>jst1</li>
+		<li>spring</li>
+		<li>mybatis</li>
+	</ul>
+	
+	<ul>
+		<li>마이바티스</li>
+	</ul>
+	
+	<img src="../img/02.jpg"/>
+</body>
+</html>

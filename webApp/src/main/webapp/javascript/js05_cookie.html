@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function popOpen(){
+		var cookie = document.cookie; // popup = show (변수명 = 값)
+		if(cookie.indexOf('popup')== -1){ //변수가 없다면
+			window.open("popup.html","w","width=350px,height=350px")		
+		}
+		
+	}
+</script>
+</head>
+<body onload="popOpen()">
+쿠키를 이용한 팝업창 띄우기
+</body>
+</html>

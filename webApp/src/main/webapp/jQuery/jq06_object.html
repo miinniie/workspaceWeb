@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+	div{border: 2px red solid}
+</style>
+
+<script>
+	$(function(){
+		//객체조작하기
+		//wrap(): 특정객체로 선택자를 감쌈
+		$(".c1").wrap("<h1/>");
+		//wrapAll(): 특정객체로 선택자를 한번에 감쌈
+		$(".c2").wrap("<b/>");
+		
+		//wrapInner(): 특정객체내에 태그를 감쌈
+		$(".c2").wrapInner("<i/>");
+		
+		//unwrap(): 선택자의 부모 객체를 지움
+		$(".c1").unwrap();
+		
+		//each(): 선택자의 객체를 순차적으로 반복하여 적용
+		//					idx= 0,1,2,3,4
+		$("#lst>li").each(function(idx, obj){
+			//실행문
+			$(obj).html("each() 함수를 이용한 객체 조작("+idx+")");
+		});
+		
+		//map() : 자바스크립트의 배열을 이용한 함수
+		var selectList = ["걷기","달라기","경보","400m허들","마라톤","축구","농구","야구"];
+		var tag = "<select name='hobby'>";
+		
+		//                        값    index
+		selectList.map(function(value,idx){
+			tag += "<option value='"+value+"'>" + value+"</option>";
+		});
+		
+		tag+= "<select>";
+		
+		$("body").prepend(tag);
+	});
+	
+	
+</script>
+</head>
+<body>
+	<div class="c1">객체조작 메소드1</div>
+	<div class="c1">객체조작 메소드2</div>
+	<div class="c2">객체조작 메소드3</div>
+	<div class="c2">객체조작 메소드4</div>
+	
+	<ul id="lst">
+		<li>객체조작 메소드 AAA</li>
+		<li>객체조작 메소드 BBB</li>
+		<li>객체조작 메소드 CCC</li>
+		<li>객체조작 메소드 DDD</li>
+		<li>객체조작 메소드 EEE</li>
+		<li>객체조작 메소드 FFF</li>
+		<li>객체조작 메소드 GGG</li>
+	</ul>
+</body>
+</html>

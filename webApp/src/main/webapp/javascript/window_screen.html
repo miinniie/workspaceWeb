@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//팝업창 띄우기
+	//             파일명      창이름(창이름이 없으면 새로고침할때마다 다시뜸) >>> 광고 같은거 넣을때 쓰는 방법
+	window.open("popup.html","test","width=300","height=300","left=100px","top=100px");
+	
+	
+	function windowInfo(){
+		var winTxt = "";
+		//윈도우의 폭과 높이
+		//제목과 테두리를 포함한 폭과 높이
+		winTxt += "창폭 ="+ window.outerWidth +"<br/>";
+		winTxt += "창높이 =" + window.outerHeight + "<br/>";
+		
+		//제목과 테두리를 ㅔㅈ외한 폭과 높이
+		winTxt += "창폭 = "+window.innerWidth +"<br/>";
+		winTxt += "창높이 = "+window.innerWidth +"<br/>";
+		
+		//윈도우 객체의 위치 구하기
+		winTxt += "X좌표 =" + window.screenX + "<br/>";
+		winTxt += "Y좌표 =" + window.screenY  + "<br/>";
+		
+		//screen 객체
+		winTxt += "screen Width=" + screen.width + "<br/>";
+		winTxt += "screen Height=" + screen.height + "<br/>";
+		
+		document.getElementById("win").innerHTML = winTxt;
+	}
+</script>
+</head>
+<body onload="windowInfo()">
+<h1>window 객체</h1>
+<div id="win"></div>
+</body>
+</html>

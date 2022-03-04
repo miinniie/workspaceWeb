@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+	//$(선택자).이벤트(function(){실행문})
+	$(document).ready(function(){
+		//     .html(),    .text(),     .append(),    prepend(),    insert().....
+		$("#view").html("<img src='../img/04.jpg'/>제이쿼리가 실행됨");
+		//$("view").html("두번째실행 html()함수")
+		
+		$("#view").append("세번째로 실행 append()함수");
+		$("#view").prepend("네번째로 실행 prepend()함수");
+		
+		//jQuery에서 스타일시트 지정
+		$("h1").css("background-color","#ddd").css("color","red");
+		
+		for(var i=1; i<=10; i++)	{
+			$("#view").append(i+"번<br/>");
+		}	
+		
+		$(".t").css("color","blue")
+		
+		//html의 속성 설정하기
+		$("#userid").val("홍길동");
+		
+		$(".t").text($("#userid").val()); //홍길동
+		
+		$("#userid").attr("placeholder","아아디를 입력")
+		$("img").attr("src","../img/05.jpg")
+		
+		//속성명은 존재하나 속성값이 없는 속성을 설정(prop) <> 속성명은 존재하고 속성값도 있으면(attr)
+		$("#userid").prop("readonly", true)
+	});	
+
+s</script>
+</head>
+
+<body>
+	<h1>JQuery테스트</h1>
+	<div id="view"></div>
+	<h1 class="t">AAAAAAAAAAAAAAAA</h1>
+	<h1>BBBBBBBBBBBBBBBB</h1>
+	<h1 class="t" >CCCCCCCCCCCCCCCC</h1>
+	<form>
+		<!-- readonly: 읽기전용, disabled:비활성화 , checked, selected-->
+		<input type="text" name="userid" id="userid"/>
+	</form>
+</body>
+
+</html>

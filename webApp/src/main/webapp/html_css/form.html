@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+
+<style>
+	#content{
+		width: 500px; height: 100px;
+		
+	}
+</style>
+</head>
+
+<body>
+<h1>form태그</h1>
+<!-- 
+	method: 데이터 전송방식
+	get(default): 주소 표시줄에 변수와 데이터가 표시된다.
+	post: 변수와 데이터가 표기되지 않는다.
+ -->
+<form method ="get" action="login.jsp"> <!-- 서버에서 실행되는 프로그램을 호출 >> get방식: 주소 태크에 나옴 // post방식: -->
+	<!-- form 태그내에서 submit이 발생할 경우 form태그의 action속성의 기술된 파일을 실행한다. -->
+	아이디: <input type="text" name="userid" id="userid" placeholder="아아디" size="30" maxlength="10" value="goguma"/><br/> <!-- palceholder는 빈칸에 쓸 단어 , size는 글자수를 말함-->
+	비밀번호: <input type="password" name="userpw" placeholder="비밀번호"/><br/>
+	주소: <input type="password" name="userpwd" placeholder="주소"/><br/>
+	파일첨부: <input type="file" name="filename"/><br/>
+	
+	체크박스: <!-- 다중 선택이 가능할때 -->
+		<input type="checkbox" name="hobby" values="축구" checked/> 축구 <!-- 처음이 실행될때 체크여부 > checked -->
+		<input type="checkbox" name="hobby" values="야구"/> 야구
+		<input type="checkbox" name="hobby" values="농구"/> 농구
+		<input type="checkbox" name="hobby" values="배구"/> 배구
+		<input type="checkbox" name="hobby" values="탁구"/> 탁구
+	<br/>
+	라디오버튼: <!-- 여러개중이 하나만 선택해야할때 -->
+		<input type="radio" name="gender" values="M"/> 남
+		<input type="radio" name="gender" values="F"/> 여
+		
+		
+	<br/>
+	여러개줄의 문자열을 입력하는 박스:
+		<textarea name="content" id="content">글내용</textarea>
+		<script>
+			CKEDITOR.replace("content");
+		</script>
+	
+	목록선택
+	<select name="language"> <!-- 여러개 선택할 수 있게 하는거 -->
+		<option value="java">자바</option>
+		<option value="jsp">JSP</option>
+		<option value="javascript">자바스크립트</option>
+		<option value="spring" selected>Spring framework</option>
+	</select>
+	<br/>
+	<select name="language2"> <!-- 여러개 선택할 수 있게 하는거 -->
+		<optgroup label="프론트엔드">
+			<option value="html/css">HTML/CSS</option>
+			<option value="javascript">자바스크립트</option>
+			<option value="jquery">제이쿼리</option>
+		</optgroup>
+		<optgroup label="백앤드">
+			<option value="java">자바</option>
+			<option value="jsp">JSP</option>
+			<option value="spring" selected>Spring framework</option>		
+		</optgroup>
+	</select>
+	<hr/>
+	<!-- 날짜 시간에 관련된 속성 -->	
+	date: <input type="date" name="date1"><br/>
+	datetime-local: <input type="datetime-local" name="date2"/><br/>
+	month: <input type="month" name="date3"/><br/>
+	week: <input type="week" name="date4"/><br/>
+	color: <input type="color" name=rgb/><br/>
+	number: <input type="number" name="num" min='10' max="100" step="10"><br/>
+	range: <input type="range" name="range" min="0" max="100" step="10"/>
+
+	<hr/>	
+	<br/>
+	<input type="button" value="로그인"/>
+	<input type="submit" value="로그인"/>
+	<input type="reset" value="로그인"/>
+	<button>로그인</button>
+	<input type="image" src="../img/btn.png"/>
+	
+	
+	
+</form>
+
+</body>
+
+</html>

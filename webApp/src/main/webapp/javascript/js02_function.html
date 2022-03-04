@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//함수생성 function 함수명(변수){실행문}
+	function gugudan(dan){
+		//DOM
+		var result;
+		for(var i=2; i<=9; i++){
+			result = result+dan+"*" + i + "=" + (dan*i) + "<br/>";
+		}
+		console.log(result);
+
+		//id view의 태그내에 result의 값을 추가한다.
+		document.getElementById("view").innerHTML = result;
+	}
+	function gugu(){
+		console.log(!isNaN());
+		var dan = document.getElementById("dan").value /*id 단 부분을 다시 변수로 받음, parseInt는 숫자만 받음*/
+		if(!isNaN(dan)){ //숫자가 아닐때 true, 숫자일때 false 14,36.14, -9, ...9
+			var intDan = parseInt(dan);
+			var result ='';
+			for(var j=2; j<=9; j++){
+				result += intDan + "*" + j + "=" + (intDan*j)+ "<br/>";
+			}
+			document.getElementById("view").innerHTML = result;
+			
+			//자바스크립트에서 스타일시트 활용하기
+			document.getElmentById("view").style.backgroundColor = "#ddd";
+			document.getElmentById("view").style.backgroundColor = "#dotted 3px red";
+			
+			document.getElementById("dan").value="";
+			document.getElementById("dan").focus();
+		}else{
+			document.getElementById("view").innerHTML = "단을 잘못 입력하였습니다"
+		}
+	}
+</script>
+</head>
+<body>
+	단입력: <input type="text" id="dan"/>
+	<input type="button" value="클릭" onclick="gugu()"/>
+	<input type="button" value="8단출력" onclick="gugudan(8)"/>
+	<div id="view" style="border:1px solid gray"></div>
+<script>
+	//gugudan(6); //함수 호출
+</script>
+</body>
+</html>

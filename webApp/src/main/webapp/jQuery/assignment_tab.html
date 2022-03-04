@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>민이의 과제</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+	body, ul, li {
+		margin: 0;
+		padding:0;
+		list-style-type: none;}
+
+	a{color: black;}
+	
+	.menu a:link, #menu a:visited {
+		text-decoration: none;
+		color: gray;
+	}
+	.menu a:hover{
+		color: black;
+		font-weight: bold;
+	}
+	
+	
+	#container{
+		width:600px;
+		margin: 0 auto;
+	}
+	
+	#top{
+		font-size: 1em;
+	    text-align: center;
+	    height: 50px;
+	    line-height: 50px;   
+	}
+	
+	/*menu*/
+	.menu{
+		height:40px;
+	}
+	
+	.menu li{
+		float: left;
+		width: 10%;
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+	}
+	
+	.menu li.current{
+		background-color: white;
+	}
+	
+	.menu ul{
+		display: none;
+		position: relative;
+		background: white;
+	}
+	
+	.content{
+		clear: both;
+		background-color: white;
+	}
+	
+	.content div{
+		display: none;
+		text-align: center;
+	}
+	
+	.content div.current{
+		display: block;
+	}
+	
+	img{
+		width: 600px;
+		height: 100%;
+	}
+	
+</style>
+
+<script>
+$(document).ready(function() {
+
+  $('.menu li').click(function(){
+    var idx = $(this).index();
+    
+    $('.menu li').removeClass("current");
+    $('.menu li').eq(idx).addClass("current");
+
+    $('.content > div').hide();
+    $('.content > div').eq(idx).show();
+  })
+});
+
+</script>
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="top"></div>
+		
+		<ul class="menu">
+			<li class="current"><a href="#">블로그</a></li>
+			<li><a href="#">카페</a></li>
+			<li><a href="#">팁</a></li>
+			<li><a href="#">지식공간</a></li>
+			<li><a href="#">영화</a></li>
+			<li><a href="#">뮤직</a></li>
+			<li><a href="#">웹툰</a></li>
+			<li><a href="#">스토리볼</a></li>
+			<li><a href="#">브런치</a></li>
+			<li><a href="#">게임</a></li>
+		</ul>
+		
+		<div class="content">
+			<div class="current"><img src="../img/tab11.png"/></div>
+			<div><img src="../img/tab2.png"/></div>
+			<div><img src="../img/tab10.png"/></div>
+			<div><img src="../img/tab4.png"/></div>
+			<div><img src="../img/tab5.png"/></div>
+			<div><img src="../img/tab6.png"/></div>
+			<div><img src="../img/tab7.png"/></div>
+			<div><img src="../img/tab8.png"/></div>
+			<div><img src="../img/tab9.png"/></div>
+			<div><img src="../img/tab10.png"/></div>
+			<div><img src="../img/tab11.png"/></div>
+		</div>
+		
+	</div>
+</body>
+
+
+</html>

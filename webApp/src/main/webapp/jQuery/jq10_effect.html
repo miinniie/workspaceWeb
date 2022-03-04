@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+	img{width:500px; height:500px;}
+</style>
+<script>
+	$(function(){
+		$("#h1").click(function(){
+			//      'slow',  'normal',  'fast',  밀리초
+			//$("img: first").hide('slow');
+			//$("img:first").fadeOut('slow');
+			$("img:first").slideUp(3000);
+		});
+		
+		$("#h2").click(function(){
+			//$("img:first").show(3000);
+			//$("img:first").fadeIn(3000);
+			$("img:first").slideDown(3000);
+		});
+		
+		$("#h3").click(function(){
+			//$('img:first').toogle(3000); //hide,show
+			//$('img:first').fadeToogle(3000); // fadeOut, fadeIn
+			$('img:first').slideToogle(3000); // slideUp, slideDown
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<button id="h1">숨기기</button>
+	<button id="h2">보여주기</button>
+	<button id="h3">토글</button>
+	<hr/>
+	
+	<img src="../img/03.jpg"/><br/>
+	<img src="../img/04.jpg"/><br/>
+</body>
+</html>

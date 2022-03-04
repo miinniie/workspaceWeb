@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href ="style.css" type="text/css"/>
+<style>
+	body{margin: 0px}
+	
+	/* >: 자손 , 띄어쓰기: 후손  */
+	#menu>ul{
+		background:lightblue;
+		padding: 0px;
+		overflow: auto;
+		list-style-type: none;}
+	/*li 태그를 왼쪽 정렬 float: left, rigt*/
+	/*문자를 정렬: text-align: left, center, right*/
+	#menu li{
+		float: left;
+		width: 20%;
+		text-align: center;
+		height: 50px;
+		line-height: 50px; } /*center >> 가운데 정렬*/	
+	/*배경색상, 이미지*/
+	body{
+	
+	/*
+		background-color: yellow;
+		background-image: url(../img/flower.png);
+		/*배경이미지 반복여부 설정: repeat-x, repeat-y, no-repeat
+		background-repeat: no-repeat;
+		/*배경이미지 위치 설정: left, center, right, top, botton
+		background-position: top right;
+		background-attachment: fixed; /*scroll해도 배경은 고정되게
+	*/
+	
+		background: fixed url(../img/flower.png) no-repeat right bottom;
+	}
+	
+	
+	
+</style>
+</head>
+
+<body>
+<hr>
+<h1>list 태크</h1>
+
+<div id="menu">
+	<ul>
+		<li><a href="#">홈</a></li>
+		<li><a href="#">회원가입</a></li>
+		<li><a href="#">로그인</a></li>
+		<li><a href="#">게시판</a></li>
+		<li><a href="#">자료실</a></li>
+	</ul>
+</div>
+
+<!-- 
+	type : disk(채워진원), circle(비워진원), square(채워진 사각형) 
+ -->
+
+<hr/>
+<ul type="circle"> <!-- bullet point -->
+	<li><a href="#">네이트</a></li>
+	<li><a href="#">네이버</a></li>
+	<li><a href="#">다음</a></li>
+	<li><a href="#">홈</a></li>
+</ul>
+
+<!-- 
+	type: 1, 가, A, a, I, i
+ -->
+ 
+ <style>
+ 	ol>li{
+ 		/*left, top, right, bottom */
+ 		/*
+ 		
+ 		border-top-width: 2px;
+ 		border-top-style: solid;
+ 		border-top-color: red;
+ 		
+ 		border-bottom-width: 3px;
+ 		border-bottom-style: dotted;
+ 		border-bottom-color: green;
+ 		*/
+ 		/*스타일의 그룹화
+ 		border-style: double;
+ 		border-width: 3px;
+ 		border-color: pink;
+ 		*/
+ 		
+ 		border: double 3px pink;
+ 		
+ 		/*margin, padding, background*/
+ 		margin: 10px 20px 30px 50px; /*top, right, bottom, left*/
+ 		padding: 10px;
+ 		
+ 		
+ 		
+ 		
+ 	}
+ 	
+ </style>
+<ol type="A"> <!-- 숫자로 -->
+	<li><a href="#">네이트</a></li>
+	<li><a href="#">네이버</a></li>
+	<li><a href="#">다음</a></li>
+	<li><a href="#">홈</a></li>
+</ol>
+
+<ol type="A"> <!-- 숫자로 -->
+	<li><a href="#">네이트</a></li>
+	<li><a href="#">네이버</a></li>
+	<li><a href="#">다음</a></li>
+	<li><a href="#">홈</a></li>
+</ol>
+
+</body>
+
+</html>

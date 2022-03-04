@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/*
+가상클래스를 이용하여 a태그에 스타일 지정하기
+text-decoration속성: 밑줄(underline), 윗줄(overline), 취소선(line-through), none(선없음)
+*/
+
+a:link,  a.visited {color: gray; text-decoration: none; } /*링크 상태일때, 방문한 상태일때 + a테그 이후에 띄어쓰기 하면 안됨*/
+a:hover {font-weight: bold; color: #00f; }

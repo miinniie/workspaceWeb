@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		//jquery에서 이벤트 처리하기
+		/*
+			onclick, onmouseover(onmouseenter), onmouseout(onmouseleave), onchange,
+			onsubmit, onscroll, onlaod, onresize, onkeyup, onkeydown, onreset, ondbclick,
+			onfocus,....
+		*/
+		
+		/*
+		//이벤트 처리방법1==========
+		$("h1").click(function(){
+			//이벤트 발생시 처리할 실행문...
+			//this: 현재 이벤트가 발생한 객체/태그
+			$(this).css("background-color","yellow");
+			//$(this).text("h1태그를 클릭하였습니다.")//html(), text()
+			$(this).text($(this).text()+"★");
+		});
+		*/
+		
+		/*
+		//이벤트 처리방법2============
+		//         이벤트 종류, 이벤트가 발생시 실행할 함수, 실행 함수	
+		$('h1').on('click',function(){
+			$(this).css("color","green");
+		});
+		*/
+		
+		/*
+		//이벤트 처리방법3============
+		//   onmouseover, onmouseout 한번에 구현하기
+		$("h1").on({mouseover:function(){
+					//mouseover
+					$(this).css("background-color","pink");
+				},mouseout:function(){
+					//mouseout
+					$(this).css("background-color","#fff");
+				}
+			
+		});
+		
+		$("img").on({mouseenter:function(){
+			$(this).attr("src","../img/03.jpg");
+		},mouseleave:function(){
+			$(this).attr("src","../img/05.jpg");
+		}});
+		*/
+		
+		/*
+		//이벤트 처리방법4============
+		//하나의 객체에 2개 이상의 이벤트가 같은 처리를 해야할때
+		//	click, foucs
+		
+		// input[속성=속성값]
+		$("input[type=button]").on('click focus',function(){
+			$(this).css("font-size","2em").css("background-color","orange");
+			$(this).val("이벤트처리됨")
+		});
+		*/
+		
+		//이벤트 처리방법5============
+		//            이벤트 종류, 이벤트 발생객체, 실행문
+		$(document).on('click','h1',function(){
+			$(this).css("background-color","yellow");
+		});
+	
+			
+		
+	});
+	
+	
+	
+	
+	
+</script>
+
+</head>
+<body>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+<h1>jquery 이벤트 처리</h1>
+
+<input type="button" value="12345"/>
+<input type="button" value="가나다라"/>
+<input type="button" value="ABCD"/><br/>
+<img src="../img/05.jpg"/>
+
+</body>
+</html>

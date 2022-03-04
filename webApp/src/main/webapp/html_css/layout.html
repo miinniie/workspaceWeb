@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href ="style.css" type="text/css"/>
+
+<style>
+	body ul{margin:0px;}
+	#main{
+		background-color:#ddd;
+		height: 700px;
+		width: 1200px;
+		margin: 0px auto; /*오른쪽은 auto*/
+		position: relative;	
+	}
+	
+	/*메뉴*/
+	/* >: 자손 , 띄어쓰기: 후손  */
+	#menu>ul{
+		background:lightblue;
+		padding: 0px;
+		overflow: auto;
+		list-style-type: none;}
+	/*li 태그를 왼쪽 정렬 float: left, rigt*/
+	/*문자를 정렬: text-align: left, center, right*/
+	#menu li{
+		float: left;
+		width: 20%;
+		text-align: center;
+		height: 50px;
+		line-height: 50px; /*center >> 가운데 정렬*/	
+	}
+	#header{
+		height: 100px;
+		background:green; 
+	}
+	#footer{
+		height: 50px;
+		background: #aaa;
+	}
+</style>
+
+</head>
+<body>
+
+<div id="header"></div>
+
+<div id="main">
+	<div id="menu">
+		<ul>
+		<!-- 메뉴-->
+			<li><a href="#">홈</a></li>
+			<li><a href="#">회원가입</a></li>
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">게시판</a></li>
+			<li><a href="#">자료실</a></li>
+		</ul>
+	</div>
+	<style>
+		#section>div{
+			width: 50%; height: 300px; float:left;
+		}
+		#bannerleft{
+			width: 100px;
+			height: 300px;
+			background: blue;
+			position: absolute;
+			left: -100px;
+			top: 200px;
+		}
+		#bannerright{
+			width: 100px;
+			height: 300px;
+			background: red;
+			position: absolute;
+			right: -100px;
+			top: 200px;
+		}
+	</style>
+	<div id="section">
+		<div style="background: orange" id="left">1</div>
+		<div style="background: pink" id="right">1</div>
+	</div>
+	
+	<!-- banner -->
+	<div id="bannerright"></div>
+	<div id="bannerleft"></div>
+	
+</div> <!-- main -->
+
+<div id="footer"></div>
+
+</body>
+</html>

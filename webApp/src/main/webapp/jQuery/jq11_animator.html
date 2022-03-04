@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+	div, img{width:100px; height: 100px; position: absolute;};
+	div {background: pink;}
+	
+</style>
+
+<script>
+	$(function(){
+		//객체가 이동한다.
+		//animate({JSON형식의 속성},5000); ->> 5000밀리초 대신 'slow' 'normal' 'fast'도 됨
+		$("#i1").animate({marginLeft: "800px", width: "200px", marginTop: "500px"},5000)
+				.animate({marginLeft:"100px", marginTop:"100px"},3000);
+				
+		$("#i2").animate({marginLeft: "1000px"},5000);
+		
+		//delay(): 애니메이션 출발전 대기 시간
+		$("#i3").delay(3000).animate({marginLeft: "900px", marginTop:"300px"},5000);
+		
+	});
+</script>
+
+</head>
+<body>
+	<div id="i1">Animate</div>
+	<img src="../img/03.jpg" id="i2"/>
+	<img src="../img/04.jpg" id="i3"/>
+</body>
+</html>

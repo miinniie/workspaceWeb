@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 구글맵을 이용하여 지명, 건물명으로 지도 사용하기 / initMap이 함수이름 -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiyi8IBKuUJnY0RccI6KvVWJslar5cPWg&callback=initMap"></script>
+<style>
+	#gmap{border:1px solid #bbb; height: 700px;}
+	#geocodeSearch{position:absolute; left:500px; top:50px;}
+</style>
+</head>
+<body>
+
+<div>
+	<div id="gmap"></div>
+	<div id="geocodeSearch">
+		<input type="text" id="address" value="여의도역"/>
+		<input type="button" value="GeoCoder" onclick="geoSearch()"/>
+	</div>
+</div>
+
+<script>
+	var latitude;
+	var longitude;
+	
+	var map;
+	var geocoder;
+	
+	function initMap(){
+		latitude = 37.5729053;
+		longitude = 126.9793578;
+		//지도옵션
+		var myCenter = new google.maps.LatLng(latitude, longitude);
+		var option = {
+				center : myCenter,
+				zoom : 14,//확대를 얼마정도 할꺼냐 (0~21) 클수록 확대 
+				mapTypeId: google.maps.MapTypeId.ROADMAP //지도종류 (ROADMAP, HYBRID, STEELITE, TERRAIN)
+		};
+		
+		//지도 생성           지도를 표시할 곳                     지도옵션
+		map = new google.maps.Map(document.getElementById("gmap"),option );
+		geocoder = new google.maps.Geocoder();
+		
+		//마커 표시하기
+		var marker = new google.maps.Marker({
+			position: myCenter, //마커를 표시할 위치
+			map:map,//마커를 표기할 지도
+			//icon: 'gmap_pin.png', //표시할 이미지 파일
+			title: '마커에 표시할 내용'
+		});
+		
+		marker.setMap(map);
+		
+		//마커를 클릭하면 정보를 표시
+		var infoTxt = "위도:"+latitude+"<br/>"+"경도:"+longitude+"<br/>";
+			infoTxt += "<a href='https://www.seoul.go.kr' target='_blank'><img src='../img/01.jpg' width='100' height='100'/></a>";
+		
+		var infoWindow = new google.maps.InfoWindow({content: infoTxt});
+		
+		//마커 이벤트를 등록한다.            이벤트발생대상, 이벤트 종류
+		google.maps.event.addListener(marker, 'click', function(){infoWindow.open(map, marker)});
+		
+		//반경 표시하기 (json 데이터)
+		var myCity = new google.maps.Circle({
+			center : myCenter,
+			radius : 500,
+			strokeColor: '#f00', //선색
+			strokeOpacity: 0.5, //선의 투명도
+			fillColor: 'gray', //배경색
+			fillOpacity: 0.4, //배경투명
+			strokeWidth: 5 //선두께
+		});
+		myCity.setMap(map);
+	}
+	
+	//지명으로 지도 표시하기
+	function setMapPosition(gAddr, gImg){
+		//								 콜백함수
+		geocoder.geocode({'address':gAddr}, function(results, status){ //status에 'OK'가 있으면 있는 주소이다.
+				if(status=='OK'){ //존재하는 주소이면
+					//지도를 검색한 위치로 변경
+					map.setCenter(results[0].geometry.location)
+					//marker표시
+					var marker = new google.maps.Marker({
+						map:map,
+						title: results[0]['formatted_address'],//주소
+						position:results[0].geometry.location
+					});
+				
+				//팝업만들기
+				var la = results[0]['geometry']['location']['lat'](); //위도
+				var lo = results[0]['geometry']['location']['lng'](); //경도
+				
+				var msg = "위도:"+la;
+					msg += "<br/>경도:"+lo;
+					msg += "<br/>주소:"+results[0]['formatted_address'];
+					msg += "<br/><a href='#'><img src='../img/"+gImg+" width='80' height='80'/></a>";
+					
+				//주소
+				var infoWin = new google.maps.InfoWindow({context:msg});
+				
+				google.maps.event.addListener(marker, 'mouseover', function(){infoWin.open(map, marker)})
+				
+				}//if
+		}); //geocoder함수.메소드
+		
+	}
+	function geoSearch(){
+		var addr = document.getElementById("address").value;
+		if(addr==""){
+			alert("지명 또는 역명 또는 건물명을 입력 후 검색하세요.")
+		}else{
+			setMapPosition(addr, "02.jpg")
+		}
+	}
+	
+</script>
+</body>
+</html>

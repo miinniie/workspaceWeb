@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	img{width:200px; height: 200px;}
+	.c1{border:3px solid green;}
+	.c2{border:3px solid blue;}
+	.c3{border:3px solid orange;}
+	.c4{border:3px solid red;}
+	.c5{border:3px solid pink;}
+</style>
+<script>
+	$(function(){
+		//jquery에서 스타일 시트 클래스 제어하기
+		//addClass(): 태그에 스타일 클래스르 추가
+		$("img").addClass("c3");
+		$("img").addClass("c4");
+		
+		$("img").removeClass("c4");
+		
+		//홀수번째 이미지 c5, 짝수번째 c2
+		$("img:even").removeClass("c2");
+		$("img:odd").removeClass("c5");
+		
+		//toggleClass();
+		$("img").toogleClass("c2");
+		$("img").toggleClass("c4");
+		
+	});
+
+</script>
+</head>
+<body>
+	<img src="../img/01.jpg"/>
+	<img src="../img/02.jpg"/>
+	<img src="../img/03.jpg"/>
+	<img src="../img/04.jpg"/>
+	<img src="../img/05.jpg"/>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>민이의 쇼핑몰</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+	body, ul, li {margin: 0; padding:0; list-style-type: none; /*bullet point 지우기*/}
+
+	#menu a:link, #menu a:visited {text-decoration: none; color: gray;}
+	#menu a:hover{color: red;}
+	
+	
+	#container{width:1200px; margin: 0 auto; }
+	
+	/*logo*/
+	#top{
+		font-size: 4em;
+	    text-align: center;
+	    height: 200px;
+	    line-height: 200px; /*줄높이를 높이와 맞춰주면 높이가 가운데로 맞춰짐*/   
+	}
+	
+	/*menu*/
+	#menu{
+		height:40px;
+		/*overflow:auto; ul에 있는 내용이 넘쳤을때*/
+		border-top: 1px solid gray;
+		border-bottom: 3px solid gray;
+		z-index:100; /*컨텐츠가 겹쳐졌을때 우선순위: 숫자 클수록 우선*/
+		/*범위를 초과하는 내용*/
+	}
+	
+	#menu>li{
+		float: left; /*오른쪽으로 정렬*/
+		width: 20%; /*폭조정*/
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+	}
+	
+	#menu ul{
+		/*visibility: 컨텐츠를 숨기고 자리를 반환하지 않는다 visible(보여주다), hidden(숨기다.)*/ 
+		display: none; /*커텐츠를 숨기고 차지하고 있는 자리를 반납합니다. block(보여주다) none(숨기다)*/
+		position: relative; /*(relative, absolute))이게 없는 static상태에서는 위치를 지정하는거 자체가 불가*/
+		background: white;
+	}
+	
+	#content{
+		z-index:1;
+	}
+	
+</style>
+
+<script>
+	$(function(){
+		$("#menu >li").hover(function(){
+			$(this).children('ul').css("display","block"); //block (보이다)
+		},function(){
+			$(this).children('ul').css("display","none");
+		});
+	});
+	
+</script>
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="top">MIHN'S DAILY</div>
+		
+		<ul id="menu">
+			<li><a href="#">OUTER</a>
+				<!-- OUTER 서브메뉴 -->
+				<ul>
+					<li><a href="#">가디건</a></li>
+					<li><a href="#">자켓</a></li>
+					<li><a href="#">베스트</a></li>
+					<li><a href="#">코트</a></li>
+				</ul>
+			</li>
+			
+			<li><a href="#">TOP</a>
+				<!-- TOP 서브메뉴 -->
+				<ul>
+					<li><a href="#">티셔츠</a></li>
+					<li><a href="#">후드</a></li>
+					<li><a href="#">블라우스</a></li>
+					<li><a href="#">긴팔</a></li>
+				</ul>
+			</li>
+			
+			<li><a href="#">DRESS</a>
+				<!-- DRESS 서브메뉴 -->
+				<ul>
+					<li><a href="#">짧은 원피스</a></li>
+					<li><a href="#">긴 원피스</a></li>
+				</ul>
+			</li>
+			
+			<li><a href="#">BOTTOM</a>
+				<!-- BOTTOM 서브메뉴 -->
+				<ul>
+					<li><a href="#">레깅스</a></li>
+					<li><a href="#">청바지</a></li>
+					<li><a href="#">스커트</a></li>
+					<li><a href="#">팬츠</a></li>
+					<li><a href="#">면바지</a></li>
+				</ul>
+			</li>
+			
+			<li><a href="#">SUMMER</a>
+				<!-- SUMMER 서브메뉴 -->
+				<ul>
+					<li><a href="#">수영복</a></li>
+					<li><a href="#">수영장 아우터</a></li>
+				</ul>
+			</li>
+		</ul>
+		<img src="../img/05.jpg" id="content"/>
+		
+	</div>
+	
+	
+	
+</body>
+
+
+</html>

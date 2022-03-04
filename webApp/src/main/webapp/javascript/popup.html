@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function popOpen(){
+		window.open("popup.html","w","width=350px ,height=350px")
+	}
+</script>
+<script>
+	function winClose(){
+		//checkbox가 checked일때 쿠키서징
+		//true, false
+		if(document.getElementById("popChk").checked){//오늘그만보기가 체크상태일때
+			//쿠키저장
+			//console.log(11111);
+			var now = new Date();
+			console.log(now);
+			// 년: getFullYear(), 월: getMonth(), 일: getDate()
+			// 시: getHours(), 분: getMinutes(), 초: getSeconds(), 요일: getDay()
+			
+			now.setDate(now.getDate()+1); //내일 이 시간.
+			
+			var cookieData = "popup=show;path=/;expires="+now;
+			console.log(cookieData)
+			
+			document.cookie = cookieData 
+		}
+		
+		//window.close();
+		//self.close();
+	}
+	var timer;
+</script>
+</head>
+<body>
+<div>
+	<input type="checkbox" id="popChk"/> 오늘 그만보기
+	<input type="button" value="닫기" onclick="winClose()"/>
+</div>
+<img src="../img/flower.png" onclick="winClose()"/>
+
+</body>
+</html>
